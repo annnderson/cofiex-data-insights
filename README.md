@@ -1,134 +1,192 @@
-# cofiex-data-insights
-Dashboard e análise de projetos COFIEX
+Cofiex Data Insights – Dashboard e Análise de Projetos COFIEX
 
-# 🌍 Cofiex Data Insights – Análise de Projetos e Financiamentos Internacionais
+Análise dos projetos e programas do setor público brasileiro com financiamento externo, sob coordenação da Comissão de Financiamentos Externos (COFIEX).
 
-## 🧭 Visão Geral  
-Este projeto apresenta uma análise detalhada dos **projetos e programas do setor público brasileiro** que contam com **financiamento externo** de organismos **multilaterais e bilaterais**, sob a coordenação da **Comissão de Financiamentos Externos (COFIEX)**.  
+Visão Geral
 
-O objetivo é compreender como os recursos são distribuídos entre setores, regiões e fases do ciclo de projeto — desde a análise até a execução —, utilizando **dados públicos** e **ferramentas de Business Intelligence** para transformar informações em insights estratégicos.  
+Este projeto apresenta uma análise estruturada dos projetos financiados por organismos multilaterais e bilaterais, explorando como os recursos são distribuídos entre setores, regiões e fases do ciclo de aprovação.
+O objetivo é transformar dados públicos em insights claros, que apoiem decisões e aumentem a transparência.
 
----
+1. Coleta de Dados
 
-🔗 [Acessar a fonte oficial dos dados](https://dados.gov.br/dados/conjuntos-dados/cofiex)
+A base foi obtida a partir de fontes públicas oficiais sobre financiamentos externos da administração pública federal.
 
-## 🧩 Estrutura do Projeto  
+O dataset inclui:
 
-### 1️⃣  Coleta de Dados  
-A base foi obtida a partir de **fontes públicas oficiais** sobre financiamentos externos da administração pública federal.  
-O dataset inclui informações como:  
-- Nome e código do projeto;  
-- Setor e região de atuação;  
-- Fonte financiadora;  
-- Valor do financiamento e contrapartida;  
-- Fases do projeto (análise, tramitação, assinatura e execução).  
+Nome e código do projeto
 
+Setor e região
 
-📁 **Arquivo principal:** `dados_2025-02-05.xlsx`  
-📄 **Versão final tratada:** `dados_final.csv`  
+Fonte financiadora
 
----
+Valor financiado e contrapartida
 
-### 2️⃣  Limpeza e Preparação dos Dados  
-Realizada em **Python (Google Colab)** com uso da biblioteca **pandas**, incluindo:  
-- Conversão de datas e formatação no padrão brasileiro;  
-- Padronização de colunas e remoção de valores nulos;  
-- Criação de novas variáveis como:  
-  - `dias_ate_assinatura`  
-  - `dias_ate_ultimo_desembolso`  
-  - `fase_tipo`  
-  - `projeto_assinado`  
-  - `projeto_multi_fonte`  
+Fases do projeto (análise, tramitação, assinatura, execução)
 
-O arquivo final foi exportado para o **Google Drive** e integrado ao **Looker Studio** para visualização interativa.  
+Arquivos:
+• dados_2025-02-05.xlsx
+• dados_final.csv
 
----
+2. Limpeza e Preparação dos Dados
 
-### 3️⃣  Análise Exploratória de Dados (EDA)  
-A EDA teve como foco entender **padrões, correlações e distribuição de investimentos**.  
-Foram criadas diferentes análises e visualizações:  
+Processo realizado em Python (Google Colab) com pandas, incluindo:
 
-- **Distribuição de projetos por região e setor**  
-- **Evolução de projetos recebidos vs. assinados por ano**  
-- **Comparativo financeiro entre valores financiados e contrapartidas**  
-- **Tempo médio até assinatura (eficiência administrativa)**  
-- **Top setores e projetos com maiores financiamentos**  
+Conversão e padronização de datas
 
----
+Remoção de nulos e inconsistências
 
-### 4️⃣  Dashboard no Looker Studio  
-O dashboard foi estruturado em **5 páginas interativas**, cada uma com um propósito analítico:  
+Normalização de colunas
 
-#### 📌 Página 1 – *Análise Geral de Projetos e Financiamentos*  
-Visão macro com indicadores principais, evolução temporal e distribuição por região.  
+Criação de novas variáveis analíticas:
 
-#### 📌 Página 2 – *Setores e Status dos Projetos*  
-Análise comparativa por setor e fase dos projetos.  
+dias_ate_assinatura
 
-#### 📌 Página 3 – *Análise Detalhada (Tabela Dinâmica)*  
-Consulta interativa com filtros de **Setor, Região e Fase Tipo**, exibindo valores e detalhes de cada projeto.  
+dias_ate_ultimo_desembolso
 
-#### 📌 Página 4 – *Eficiência e Contrapartidas*  
-Tempo médio até assinatura e proporção das contrapartidas em relação ao total financiado.  
+fase_tipo
 
-#### 📌 Página 5 – *Conclusões e Principais Insights*  
-Resumo visual com **métricas, top setores e média de investimentos**.  
+projeto_assinado
 
----
+projeto_multi_fonte
 
-## 💡 Principais Insights  
+A versão final foi exportada e conectada ao Looker Studio.
 
-- **Projetos Nacionais representam quase metade do total de investimentos.**  
-- O tempo médio entre recebimento e assinatura é de aproximadamente **10 anos**, evidenciando um longo ciclo de aprovação.  
-- **Setores com maior financiamento:** Infraestrutura, Energia, Desenvolvimento Social e Transportes.  
-- **Contrapartida média:** 33,3% do valor total dos projetos, indicando esforço conjunto entre governo e organismos financiadores.  
-- **Crescimento contínuo** de assinaturas nos últimos anos, especialmente após 2018.  
+3. Hipóteses Avaliadas
 
----
+Para guiar a EDA, foram consideradas hipóteses simples, coerentes com o contexto:
 
-## 🛠️ Tecnologias Utilizadas  
-- **Python (pandas, numpy, matplotlib)** – Limpeza e EDA  
-- **Google Colab** – Ambiente de análise  
-- **Google Sheets** – Ajustes e exportação  
-- **Looker Studio** – Visualização e dashboard  
-- **GitHub** – Documentação e entrega final  
+H1: Projetos nacionais recebem mais recursos.
 
----
+H2: Regiões Sul e Sudeste concentram mais propostas aprovadas.
 
-## 🧾 Estrutura de Pastas
-📁 Projeto-COFIEX
-┣ 📂 data
-┃ ┣ dados_2025-02-05.xlsx
-┃ ┗ dados_final.csv
-┣ 📂 notebook
-┃ ┗ analise_cofiex.ipynb
-┣ 📂 dashboard
-┃ ┗ link_looker_studio.txt
-┣ 📄 README.md
-┗ 📄 relatorio_insights.pdf
+H3: Projetos com múltiplas fontes de financiamento levam mais tempo para serem assinados.
 
+H4: Setores de grande complexidade (infraestrutura, energia) possuem ciclos de aprovação mais longos.
 
----
+Essas hipóteses ajudaram a direcionar perguntas e validações ao longo da análise.
 
-## 👤 Autor  
-**Anderson Rodrigues dos Santos**  
-📍 Taboão da Serra – SP  
-📧 andersonr.create@gmail.com  
-🔗 [Github](https://github.com/annnderson) 
+4. Análise Exploratória (EDA)
 
----
+A EDA explorou padrões, tendências e relações importantes.
 
-## 📊 Link do Dashboard  
-🔗 *(https://lookerstudio.google.com/reporting/b5e212b4-9d2b-44c1-90cf-665ba42feb4a)*  
+Entre as visualizações e métricas criadas no Python e no Looker Studio estão:
 
----
+Distribuição de projetos por região
 
-## 🏁 Conclusão  
-O projeto demonstra como a **análise de dados pode aprimorar a gestão pública**, oferecendo transparência e suporte à tomada de decisões estratégicas sobre **financiamentos internacionais**.  
-As visualizações no Looker Studio permitiram identificar gargalos, tendências e oportunidades de melhoria no processo de execução e aprovação de projetos.  
+Evolução de projetos recebidos vs. assinados
 
----
+Comparativo financeiro (financiado vs contrapartida)
 
-🧠 *"Dados bem analisados transformam complexidade em clareza."*  
+Tempo médio até assinatura
 
+Participação e desempenho de setores
+
+Identificação dos maiores financiamentos
+
+5. Dashboard Interativo (Looker Studio)
+
+Organizado em 5 páginas temáticas:
+
+Visão Geral – indicadores principais e evolução
+
+Setores e Status – comparativos e fases
+
+Tabela Dinâmica – consulta detalhada com filtros
+
+Eficiência e Contrapartidas – tempos médios e proporções
+
+Insights – principais achados e conclusões
+
+Link: (https://lookerstudio.google.com/reporting/b5e212b4-9d2b-44c1-90cf-665ba42feb4a
+)
+
+6. Perguntas de Negócio Respondidas
+
+Algumas das principais perguntas analisadas:
+
+• Quais setores concentram os maiores investimentos?
+Infraestrutura, Energia, Desenvolvimento Social e Transportes.
+
+• Quanto tempo um projeto leva, em média, para ser assinado?
+Aproximadamente 10 anos, indicando um ciclo altamente burocrático.
+
+• De onde vêm os maiores financiamentos?
+Principalmente de organismos multilaterais, com destaque para bancos internacionais.
+
+• Quais regiões possuem maior quantidade de projetos?
+Predomínio de projetos nacionais e forte concentração no Sudeste.
+
+• Projetos multi-fonte são mais lentos?
+Sim. Geralmente apresentam tempos maiores de tramitação.
+
+7. Principais Insights
+
+Projetos nacionais representam quase metade do volume financeiro total.
+
+O ciclo de aprovação é longo: cerca de 10 anos entre recebimento e assinatura.
+
+Contrapartidas representam, em média, 33,3% dos valores totais.
+
+Houve crescimento no número de assinaturas após 2018.
+
+Setores estratégicos absorvem os maiores valores de financiamento.
+
+8. Limitações dos Dados
+
+Transparência é importante, e algumas limitações foram observadas:
+
+Ausência de datas completas para todos os projetos
+
+Diferenças no padrão das fases entre períodos diferentes
+
+Possíveis atrasos na atualização das bases oficiais
+
+Falta de informações sobre execução física dos projetos
+
+Essas limitações foram consideradas na interpretação dos resultados.
+
+9. Possíveis Próximos Passos
+
+Ideias para evoluir o projeto futuramente:
+
+Comparar valores aprovados vs valores efetivamente desembolsados
+
+Criar um modelo simples de previsão do tempo de assinatura
+
+Clusterizar projetos por características semelhantes
+
+Integrar outras bases de dados de investimentos públicos
+
+Tecnologias Utilizadas
+
+Python (pandas, numpy, matplotlib)
+
+Google Colab
+
+Looker Studio
+
+Google Sheets
+
+GitHub
+
+Estrutura de Pastas
+Projeto-COFIEX
+│
+├── data
+│   ├── dados_2025-02-05.xlsx
+│   └── dados_final.csv
+│
+├── notebook
+│   └── analise_cofiex.ipynb
+│
+├── dashboard
+│   └── link_looker_studio.txt
+│
+├── README.md
+└── relatorio_insights.pdf
+
+Conclusão
+
+O projeto demonstra como a análise de dados pode apoiar a gestão pública por meio de indicadores, visualizações e métricas de eficiência.
+Os insights permitem identificar gargalos, tendências e oportunidades de melhoria no processo de aprovação de financiamentos internacionais.
 
