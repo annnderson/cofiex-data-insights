@@ -1,5 +1,5 @@
-# 📊 Cofiex Data Insights (EDA)
-### Dashboard e Análise de Projetos COFIEX
+# 📊 Cofiex Data Insights 
+### Dashboard e Análise de Projetos COFIEX (EDA)
 
 ---
 
